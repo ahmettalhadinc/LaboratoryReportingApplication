@@ -34,6 +34,20 @@ function Form() {
 
     dispatch(addData(formData));
     setClose(true)
+    setFormData({
+      dosyaNumarasi: '',
+      hastaAdi: '',
+      hastaSoyadi: '',
+      hastaTcNo: '',
+      koyulanTani: '',
+      taniDetaylari: '',
+      raporTarihi: '',
+      raporFotograf: null,
+      laborantAdi: '',
+      laborantSoyAdi: '',
+      hastaneKimlik: '',
+  
+    })
     setTimeout(() => {
       setClose(false);
     }, 900);
@@ -136,7 +150,7 @@ function Form() {
       </Fieldset>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <Button
-          style={{ float: 'right', marginTop: 20 }}
+          style={{ float: 'right', marginTop: 20, marginBottom:50}}
           variant="filled"
           color="yellow"
           onClick={handleSubmit}
