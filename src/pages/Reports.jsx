@@ -9,11 +9,12 @@ import { MdDelete } from "react-icons/md";
 
 function Reports() {
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectedDetail, setSelectedDetail] = useState(null); 
+  const [selectedDetail, setSelectedDetail] = useState(null);
   const [search, setSearch] = useState('');
   const [sortOrder, setSortOrder] = useState('desc');
   const [searchCriteria, setSearchCriteria] = useState('');
   const { data } = useSelector((state) => state.lab);
+  const {isAdmin}= useSelector((a)=>a.loginSlice)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,9 +36,10 @@ function Reports() {
     if (searchCriteria === 'Hasta Adı- Soyadı') {
       return `${element.hastaAdi} ${element.hastaSoyadi}`.toLowerCase().includes(search.toLowerCase());
     } else if (searchCriteria === 'Hasta Kimlik Numarası') {
-      return element.hastaTcNo && element.hastaTcNo.toString().includes(search.toLowerCase());}
+      return element.hastaTcNo && element.hastaTcNo.toString().includes(search.toLowerCase());
+    }
 
-      else if (searchCriteria === 'Laborant Adı-Soyadı') {
+    else if (searchCriteria === 'Laborant Adı-Soyadı') {
       return `${element.laborantAdi} ${element.laborantSoyAdi}`.toLowerCase().includes(search.toLowerCase());
     }
     return true;
@@ -49,15 +51,20 @@ function Reports() {
       <Table.Td>{element.hastaTcNo}</Table.Td>
       <Table.Td>{element.raporTarihi}</Table.Td>
       <Table.Td>{element.taniDetaylari}</Table.Td>
-      <Table.Td style={{display:'flex'}}>
+      <Table.Td style={{ display: 'flex' }}>
         <FaEye
           onClick={() => {
-            setSelectedDetail(element); 
-            open(); 
+            setSelectedDetail(element);
+            open();
           }}
           style={{ textAlign: 'center', alignItems: 'center', justifyContent: 'center', display: 'flex', marginLeft: '10px', cursor: 'pointer', fontSize: '20px' }}
         />
-        <MdDelete onClick={() => dispatch(deleteData(element.dosyaNumarasi))} size={20} cursor='pointer' style={{justifyContent:'center', alignItems:'center', textAlign:'center', marginLeft:'10px'}} />
+
+{
+  isAdmin ?        <MdDelete onClick={() => dispatch(deleteData(element.dosyaNumarasi))} size={20} cursor='pointer' style={{ justifyContent: 'center', alignItems: 'center', textAlign: 'center', marginLeft: '10px' }} />
+:null
+}
+
       </Table.Td>
     </Table.Tr>
   ));
@@ -72,7 +79,7 @@ function Reports() {
         data={['Hasta Adı- Soyadı', 'Hasta Kimlik Numarası', 'Laborant Adı-Soyadı']}
         onChange={setSearchCriteria}
       />
-        <Autocomplete
+      <Autocomplete
         style={{ marginBottom: '40px' }}
         label="Arama"
         placeholder="Aramak istediğiniz kriteri girin"
@@ -80,10 +87,10 @@ function Reports() {
         onChange={setSearch}
         disabled={!searchCriteria}
       />
-      <div style={{  marginBottom: '20px', flexDirection:'row', width:'40%' , alignItems:'center'}}>
-        <h3 style={{textAlign:'center'}}>Tarihe Gore Sirala</h3>
-        <Button  style={{marginRight:'20px'}} onClick={() => handleSort('asc')}>Eskiden Yeniye</Button>
-        <Button style={{marginLeft:'20px'}} onClick={() => handleSort('desc')} >Yeniden Eskiye</Button>
+      <div style={{ marginBottom: '20px', flexDirection: 'row', width: '40%', alignItems: 'center' }}>
+        <h3 style={{ textAlign: 'center' }}>Tarihe Gore Sirala</h3>
+        <Button style={{ marginRight: '20px' }} onClick={() => handleSort('asc')}>Eskiden Yeniye</Button>
+        <Button style={{ marginLeft: '20px' }} onClick={() => handleSort('desc')} >Yeniden Eskiye</Button>
       </div>
       <Table>
         <Table.Thead>
@@ -99,7 +106,7 @@ function Reports() {
         <Table.Tbody>{rows}</Table.Tbody>
       </Table>
       <Modal size={'xl'} opened={opened} onClose={close} title="Rapor Detay">
-        <FormDetail eleman={selectedDetail} /> 
+        <FormDetail eleman={selectedDetail} />
       </Modal>
     </div>
   );

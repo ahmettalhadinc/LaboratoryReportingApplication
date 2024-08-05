@@ -1,8 +1,20 @@
-# React + Vite
+# Kurulum
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React projelerimizi acmak icin Node.js'in  ve Node Packet Manager yani npm paketinin bilgisayarimizda kurulu olmasi gerekmektedir.
 
-Currently, two official plugins are available:
+[Node js setup linki ( Node js kuruldugunda npm paketimiz de otomatik olarak kurulmaktadir.)] (https://nodejs.org/en)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Projeyi Acmak
+
+Projemizi acmamizin 2 farkli yolu vardir. 
+1.Yol- IDE uzerinden open folder dedigimizde projenin kurulu oldugu dosyanin dizinini secmemiz yeterli olacaktir.
+2.Yol- Terminal uzerinden cd "Dosya_Konumu" diyerek (kac kere cd (Dosya_Konumu) yapacagimiz projeyi nereye kurdugumuz yere gore degisir ) klasorun icine kadar gireriz (en bastaki projenin olusturuldugu isim )
+
+
+### Projeyi Calistirmak 
+
+Klasorumuzu actiktan sonra konsola gidip oncelikle npm run start diyerek eksik node paketlerini yukluyoruz. Ardindan npm run dev diyerek projemizi ayaga kaldiririz ve localimizde calismaya baslar. Bize verdigi localhost linkine tiklayarak projeye gideriz.
+
+#### Admin olarak giris yapmak
+
+Projede admin olarak rol almak icin sisteme kayitli email ve sifre yani (e-mail: admin@gmail.com ,sifre:admin) ile giris yapip raporlari silip duzenleyebilirsiniz. Standart kullanicilar sadece goruntuleyebilir. ( Admin girisi haric her kullanici Standart Kullanici statusundedir.)

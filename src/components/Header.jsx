@@ -37,7 +37,7 @@ const cikis = ()=>{
           </Drawer.Content>
         </Drawer.Root>
 
-        <IoMenu size={50} onClick={open} />
+        <IoMenu style={{cursor:'pointer'}} size={50} onClick={open} />
       </div>
       <h2>Labaratuvar Raporlama Sistemi</h2>
       <div style={{textAlign:'center'}}>

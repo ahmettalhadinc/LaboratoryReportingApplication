@@ -1,32 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Container } from '@mantine/core';
 
 import UserStack from './UserStack';
 import AuthStack from './AuthStack';
-import { Container } from '@mantine/core';
-import { useSelector } from 'react-redux';
-
-
-
+import { setAuthFromStorage } from '../redux/loginSlice';
 
 
 function RouteConfig() {
-  const{isAuth}= useSelector((a)=>a.loginSlice)
+  const dispatch = useDispatch();
+  const { isAuth } = useSelector((state) => state.loginSlice);
+
+  useEffect(() => {
+    
+    dispatch(setAuthFromStorage());
+  }, [dispatch]);
 
   return (
     <Routes>
-   
-    {isAuth ? 
-      <Route path="/*" element={
-        <Container>
-          <UserStack /> 
-        </Container>
-      }/>
-       
-     : 
-      <Route path="/*" element={<AuthStack />} />
-    }
-  </Routes>
+      {isAuth ? (
+        <Route
+          path="/*"
+          element={
+            <Container>
+              <UserStack />
+            </Container>
+          }
+        />
+      ) : (
+        <Route path="/*" element={<AuthStack />} />
+      )}
+    </Routes>
   );
 }
 

@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Table } from '@mantine/core';
 import { FaRegEdit } from "react-icons/fa";
 import { Button } from '@mantine/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateReport } from '../redux/mySlice';
+
 
 function FormDetail({ eleman }) {
   const [edit, setEdit] = useState(false);
   const [formData, setFormData] = useState(eleman);
   const dispatch = useDispatch();
-
+  const {isAdmin}= useSelector((a)=>a.loginSlice)
  
 
   const handleInputChange = (e) => {
@@ -70,10 +71,12 @@ function FormDetail({ eleman }) {
             </Table.Td>
             <Table.Td>{edit ? <input name="hastaneKimlik" value={formData.hastaneKimlik} onChange={handleInputChange} /> : formData.hastaneKimlik}</Table.Td>
             <Table.Td>
+              
               {edit ? (
                 <Button onClick={handleSave} variant="filled">Kaydet</Button>
               ) : (
-                <FaRegEdit cursor='pointer' onClick={() => setEdit(true)} />
+                isAdmin? 
+                <FaRegEdit cursor='pointer' onClick={() => setEdit(true)} />:null
               )}
             </Table.Td>
           </Table.Tr>
