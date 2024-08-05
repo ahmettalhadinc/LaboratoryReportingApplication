@@ -21,3 +21,9 @@ Isterseniz (https://ahmettalhadinc.github.io/LaboratoryReportingApplication) lin
 
 Projede admin olarak rol almak icin sisteme kayitli email ve sifre yani (e-mail: admin@gmail.com ,sifre:admin) ile giris yapip raporlari silip duzenleyebilirsiniz. Standart kullanicilar sadece goruntuleyebilir. ( Admin girisi haric her kullanici Standart Kullanici statusundedir.)
 
+![cc](https://github.com/user-attachments/assets/f682880f-901e-4c4c-a746-76749fd10655)
+![cc2](https://github.com/user-attachments/assets/a34e1175-1ec9-4721-8245-049ae68b897a)
+![cc3](https://github.com/user-attachments/assets/70261acc-17a4-4e9a-9224-50a0a03c4b57)
+![cc4](https://github.com/user-attachments/assets/191ae08e-e40a-49ee-922b-59d86fc97f1a)
+![cc5](https://github.com/user-attachments/assets/1bee717b-38d7-44d5-a15a-c855df487775)
+![cc6](https://github.com/user-attachments/assets/dd12edd6-7460-41e5-a636-0e434717a5fb)
