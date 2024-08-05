@@ -87,7 +87,7 @@ function Reports() {
         onChange={setSearch}
         disabled={!searchCriteria}
       />
-      <div style={{ marginBottom: '20px', flexDirection: 'row', width: '40%', alignItems: 'center' }}>
+      <div style={{ marginBottom: '20px', flexDirection: 'row', width: '40%', alignItems: 'center' , justifyContent:'center', textAlign:'center', marginLeft:250}}>
         <h3 style={{ textAlign: 'center' }}>Tarihe Gore Sirala</h3>
         <Button style={{ marginRight: '20px' }} onClick={() => handleSort('asc')}>Eskiden Yeniye</Button>
         <Button style={{ marginLeft: '20px' }} onClick={() => handleSort('desc')} >Yeniden Eskiye</Button>
